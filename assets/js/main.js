@@ -68,6 +68,17 @@
     targets.forEach(function (t) { t.classList.add('reveal'); io.observe(t); });
   }
 
+  // Count outbound clicks (email, profiles, articles) in GoatCounter
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var href = a.getAttribute('href');
+    if (href.charAt(0) === '#') return;
+    var path = href.indexOf('mailto:') === 0 ? 'click/email'
+      : 'click/' + a.hostname.replace(/^www\./, '') + a.pathname.replace(/\/$/, '');
+    window.goatcounter.count({ path: path, title: a.textContent.trim(), event: true });
+  });
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
