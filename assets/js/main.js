@@ -59,7 +59,7 @@
   // Reveal on scroll
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('.head, .stat, .skill, .card, .tabs, .post, .timeline > li, .edu, .award, .cta');
+    var targets = document.querySelectorAll('.head, .stat, .skill, .card, .tabs, .post, .timeline > li, .edu, .award, .projects, .cta');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
