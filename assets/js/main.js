@@ -14,7 +14,7 @@
   function setMenu(open) {
     nav.classList.toggle('is-open', open);
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuBtn.setAttribute('aria-label', menuBtn.getAttribute(open ? 'data-label-close' : 'data-label-open'));
   }
   if (menuBtn) {
     menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
@@ -30,6 +30,23 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
     document.querySelectorAll('main section[id]').forEach(function (s) { spy.observe(s); });
   }
+
+  // Theme toggle (initial theme is set by the inline script in <head>)
+  var root = document.documentElement;
+  document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  });
+
+  // Language switch keeps the current section
+  document.querySelectorAll('.lang-switch').forEach(function (a) {
+    a.addEventListener('click', function () {
+      a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
+    });
+  });
 
   // Research tabs
   var tabs = document.querySelectorAll('.tab');
@@ -52,7 +69,7 @@
       var more = btn.parentNode.querySelector('.more');
       var open = more.hidden;
       more.hidden = !open;
-      btn.textContent = open ? 'Show fewer' : 'Show all journal papers';
+      btn.textContent = btn.getAttribute(open ? 'data-less' : 'data-more');
     });
   });
 
