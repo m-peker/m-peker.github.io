@@ -42,7 +42,7 @@
   });
 
   // Language switch keeps the current section
-  document.querySelectorAll('.lang-switch').forEach(function (a) {
+  document.querySelectorAll('.lang-switch a').forEach(function (a) {
     a.addEventListener('click', function () {
       a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
     });
