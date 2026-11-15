@@ -81,7 +81,7 @@ button { font: inherit; }
   box-shadow: 0 30px 60px -20px rgba(16, 24, 40, .25);
 }
 .hero__avatar {
-  display: block; width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin-bottom: 28px;
+  display: block; width: 168px; height: 168px; border-radius: 50%; object-fit: cover; margin-bottom: 32px;
   box-shadow: 0 0 0 4px #fff, 0 12px 28px -10px rgba(16, 24, 40, .35);
 }
 
@@ -331,7 +331,7 @@ a.pub:hover .arrow { background: var(--accent); color: #fff; }
   .hero { padding: 48px 0 64px; }
   .hero__inner, .hero__inner:has(.hero__photo) { grid-template-columns: 1fr; }
   .hero__photo { display: none; }
-  .hero__avatar { width: 88px; height: 88px; margin-bottom: 24px; }
+  .hero__avatar { width: 128px; height: 128px; margin-bottom: 24px; }
   .hero__lede { font-size: 16.5px; }
   .hero__role { font-size: 16px; }
   .hero__aside .stat { padding: 20px 18px; }
