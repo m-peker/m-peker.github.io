@@ -474,3 +474,18 @@ a.pub:hover .arrow { background: var(--accent); color: #fff; }
 a.lang-opt:hover { color: var(--ink); }
 .lang-opt.is-current { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(16, 24, 40, .12); }
 @media (max-width: 420px) { .lang-switch svg { display: none; } .lang-switch { padding-left: 3px; } }
+
+/* Featured post: full-width card above the 4-column grid */
+.post--feature {
+  grid-column: 1 / -1; grid-row: auto; grid-template-rows: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "meta text" "title text" "title foot";
+  column-gap: 56px; padding: 36px 40px;
+}
+.post--feature .post__meta { grid-area: meta; }
+.post--feature h3 { grid-area: title; font-size: 26px; letter-spacing: -0.03em; line-height: 1.25; }
+.post--feature p { grid-area: text; font-size: 15.5px; }
+.post--feature .post__foot { grid-area: foot; align-self: end; }
+@media (max-width: 700px) {
+  .post--feature { grid-template-columns: 1fr; grid-template-areas: "meta" "title" "text" "foot"; padding: 26px; }
+  .post--feature h3 { font-size: 21px; }
+}
