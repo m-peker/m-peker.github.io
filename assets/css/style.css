@@ -73,7 +73,7 @@ button { font: inherit; }
 /* Hero */
 .hero { padding: 88px 0 96px; }
 .hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 72px; align-items: center; }
-.hero__inner:has(.hero__photo) { grid-template-columns: minmax(0, 1fr) 420px; }
+.hero__inner:has(.hero__photo) { grid-template-columns: minmax(0, 1fr) 320px; }
 .hero__text { max-width: 720px; }
 .hero__photo { position: relative; }
 .hero__photo img {
@@ -315,7 +315,7 @@ a.pub:hover .arrow { background: var(--accent); color: #fff; }
 /* Responsive */
 @media (max-width: 960px) {
   .hero__inner, .hero__inner:has(.hero__photo) { grid-template-columns: 1fr; gap: 48px; }
-  .hero__photo { max-width: 400px; }
+  .hero__photo { max-width: 320px; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .card--wide { grid-column: span 2; }
   .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
